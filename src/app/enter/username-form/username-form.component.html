@@ -1,0 +1,27 @@
+<section>
+    <h3>Choose Username</h3>
+    <form (submit)="onSubmit()" [formGroup]="usernameForm">
+        <input name="username" placeholder="myname" formControlName="username" />
+        <ng-container *ngIf="this.ls.loading">
+            <p>Checking...</p>
+        </ng-container>
+        <ng-container *ngIf="usernameForm.valid">
+            <p class="text-success">{{ username }} is available!</p>
+        </ng-container>
+        <ng-container *ngIf="username && usernameForm.invalid">
+            <p class="text-danger">That username is taken!</p>
+        </ng-container>
+        <button type="submit" className="btn-green" [disabled]="usernameForm.invalid">
+            Choose
+        </button>
+
+        <h3>Debug State</h3>
+        <div>
+            Username: {{ this.username }}
+            <br />
+            Loading: {{ this.ls.loading.toString() }}
+            <br />
+            Username Valid: {{ usernameForm.valid }}
+        </div>
+    </form>
+</section>

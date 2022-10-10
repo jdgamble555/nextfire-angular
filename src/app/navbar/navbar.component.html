@@ -1,0 +1,20 @@
+<nav class="navbar">
+    <ul>
+        <li>
+            <button routerLink="/" class="btn-logo">FEED</button>
+        </li>
+        <ng-container *ngIf="us.username">
+            <li class="push-left">
+                <button routerLink="/admin" class="btn-blue">Write Posts</button>
+            </li>
+            <li>
+                <img [src]="us.user?.photoURL" [routerLink]="['/', us.username]" />
+            </li>
+        </ng-container>
+        <ng-container *ngIf="!us.username">
+            <li>
+                <button routerLink="/enter" class="btn-blue">Log in</button>
+            </li>
+        </ng-container>
+    </ul>
+</nav>.

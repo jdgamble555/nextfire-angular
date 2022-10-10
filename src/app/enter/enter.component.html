@@ -1,0 +1,15 @@
+<main>
+    <ng-container *ngIf="us.user">
+        <ng-container *ngIf="us.username">
+            <button (click)="afa.signOut()">Sign Out</button>
+        </ng-container>
+        <ng-container *ngIf="!us.username">
+            <app-username-form></app-username-form>
+        </ng-container>
+    </ng-container>
+    <ng-container *ngIf="!us.user">
+        <button class="btn-google" (click)="signInButton()">
+            <img src='/assets/google.png' /> Sign in with Google
+        </button>
+    </ng-container>
+</main>
