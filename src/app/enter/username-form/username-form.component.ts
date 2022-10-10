@@ -1,7 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { doc, Firestore, getDoc, writeBatch } from '@angular/fire/firestore';
-import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, ValidatorFn, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  ValidatorFn,
+  Validators
+} from '@angular/forms';
 import { switchMap, timer } from 'rxjs';
 import { LoaderService } from 'src/app/shared/loader.service';
 import { UserService } from 'src/app/shared/user.service';
