@@ -1,5 +1,13 @@
 import { Injectable } from '@angular/core';
-import { collection, getDocs, getFirestore, limit, orderBy, query, where } from '@angular/fire/firestore';
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  limit,
+  orderBy,
+  query,
+  where
+} from '@angular/fire/firestore';
 import {
   Resolve,
   RouterStateSnapshot,

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  standalone: true,
   selector: 'app-username',
   templateUrl: './username.component.html',
   styleUrls: ['./username.component.scss']
