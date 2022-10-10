@@ -29,7 +29,7 @@ export class UserService implements OnDestroy {
           return docData(doc(this.afs, 'users', this._user.uid))
             .pipe(
               tap(_doc => {
-                this._username = _doc?.['username']
+                this._username = _doc['username']
               })
             );
         }

@@ -43,8 +43,7 @@ export class UsernameFormComponent implements OnInit {
   async onSubmit() {
 
     const { user } = this.us;
-    let username = this.usernameForm.value.username as string;
-    username = username.toLowerCase();
+    const username = (this.usernameForm.value.username as string).toLowerCase();
 
     if (user && username) {
 
