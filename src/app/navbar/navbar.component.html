@@ -5,14 +5,14 @@
         </li>
         <ng-container *ngIf="us.username">
             <li class="push-left">
-                <button (click)="afa.signOut()">Sign Out</button>
+                <button (click)="us.signOut()">Sign Out</button>
             </li>
             <li>
             <li>
                 <button routerLink="/admin" class="btn-blue">Write Posts</button>
             </li>
             <li>
-                <img [src]="us.user?.photoURL" [routerLink]="['/', us.username]" />
+                <img [src]="us.user?.photoURL || 'assets/hacker.png'" [routerLink]="['/', us.username]" />
             </li>
         </ng-container>
         <ng-container *ngIf="!us.username">

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Auth } from '@angular/fire/auth';
 import { UserService } from '../shared/user.service';
 
 @Component({
@@ -10,8 +9,7 @@ import { UserService } from '../shared/user.service';
 export class NavbarComponent {
 
   constructor(
-    public us: UserService,
-    public afa: Auth
+    public us: UserService
   ) { }
 
 }
