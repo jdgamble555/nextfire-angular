@@ -8,8 +8,6 @@ import { UserService } from '../shared/user.service';
 })
 export class NavbarComponent {
 
-  constructor(
-    public us: UserService
-  ) { }
+  constructor(public us: UserService) { }
 
 }

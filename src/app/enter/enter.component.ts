@@ -9,14 +9,12 @@ import { UsernameFormComponent } from './username-form/username-form.component';
   templateUrl: './enter.component.html',
   styleUrls: ['./enter.component.scss'],
   imports: [
-    UsernameFormComponent, 
+    UsernameFormComponent,
     SharedModule
   ]
 })
 export class EnterComponent {
 
-  constructor(
-    public us: UserService
-  ) { }
+  constructor(public us: UserService) { }
 
 }

@@ -1,0 +1,28 @@
+<ng-container *ngFor="let post of posts">
+    <div class="card">
+        <a [routerLink]="post.username">
+            <strong>By {{ post.username }}</strong>
+        </a>
+        <h2>
+            <a [routerLink]="[post.username, post.slug]">{{ post.title }}</a>
+        </h2>
+        <footer>
+            <span>
+                {{ post.wordCount }} words. {{ post.minutesToRead }} min read
+            </span>
+            <span class="push-left">💗 {{ post.heartCount || 0 }} Hearts</span>
+        </footer>
+        If admin view, show extra controls for user
+        <ng-container *ngIf="admin">
+            <h3>
+                <button [routerLink]="['admin', post.slug]" class="btn-blue">Edit</button>
+            </h3>
+        </ng-container>
+        <ng-container *ngIf="post.published">
+            <p class="text-success">Live</p>
+        </ng-container>
+        <ng-container *ngIf="!post.published">
+            <p class="text-danger">Unpublished</p>
+        </ng-container>
+    </div>
+</ng-container>

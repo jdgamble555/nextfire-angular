@@ -10,11 +10,15 @@ import { environment } from '../environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { provideStorage, getStorage } from '@angular/fire/storage';
+import { MarkdownModule } from 'ngx-markdown';
+import { HomeComponent } from './home/home.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +28,8 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
+    MarkdownModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

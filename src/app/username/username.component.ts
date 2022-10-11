@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -6,13 +6,14 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './username.component.html',
   styleUrls: ['./username.component.scss']
 })
-export class UsernameComponent implements OnInit {
+export class UsernameComponent {
 
-  constructor(private route: ActivatedRoute) { 
-    console.log(this.route.snapshot.data);
+  posts: any;
+  user: any;
+
+  constructor(private route: ActivatedRoute) {
+    const { posts, user } = this.route.snapshot.data['props'];
+    this.posts = posts;
+    this.user = user;
   }
-
-  ngOnInit(): void {
-  }
-
 }

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {
   collection,
+  Firestore,
   getDocs,
-  getFirestore,
   limit,
   orderBy,
   query,
@@ -23,10 +23,14 @@ export class UsernameResolver implements Resolve<any> {
 
   constructor(
     private ss: StateService,
-    private fbs: FirebaseService
+    private fbs: FirebaseService,
+    private afs: Firestore
   ) { }
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<any> {
+  resolve(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Promise<any> {
     return this.ss.loadState(
       this.getServerSideProps({ urlQuery: route.params }),
       state.url
@@ -59,7 +63,7 @@ export class UsernameResolver implements Resolve<any> {
       //   .limit(5);
 
       const postsQuery = query(
-        collection(getFirestore(), userDoc.ref.path, 'posts'),
+        collection(this.afs, userDoc.ref.path, 'posts'),
         where('published', '==', true),
         orderBy('createdAt', 'desc'),
         limit(5)

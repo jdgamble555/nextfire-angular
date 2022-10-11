@@ -1,0 +1,7 @@
+<div class="box-center">
+    <img [src]="user?.photoURL || 'assets/hacker.png' " class="card-img-center" />
+    <p>
+        <i>{{ user?.username }}</i>
+    </p>
+    <h1>{{ user?.displayName || 'Anonymous User' }}</h1>
+</div>
