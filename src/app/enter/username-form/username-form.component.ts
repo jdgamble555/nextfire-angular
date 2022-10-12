@@ -40,7 +40,7 @@ export class UsernameFormComponent implements OnInit {
         Validators.required,
         Validators.pattern(/^(?=[a-zA-Z0-9._]{3,15}$)(?!.*[_.]{2})[^_.].*[^_.]$/)
       ], this.checkUsername()]
-    })
+    });
   }
 
   get username() {

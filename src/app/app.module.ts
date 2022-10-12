@@ -13,7 +13,6 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
 import { MarkdownModule } from 'ngx-markdown';
 import { HomeComponent } from './home/home.component';
 import { PostComponent } from './post/post.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -21,8 +20,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    PostComponent,
-    PageNotFoundComponent
+    PostComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,9 @@
+<form [formGroup]="newPostForm" (submit)="createPost()">
+    <input formControlName="title" placeholder="My Awesome Article!" class="input" />
+    <p>
+        <strong>Slug:</strong> {{ kebabCase(newPostForm.value.title) }}
+    </p>
+    <button type="submit" disabled={!isValid} class="btn-green">
+        Create New Post
+    </button>
+</form>
