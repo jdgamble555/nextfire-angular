@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { SharedModule } from '../shared/shared.module';
 import { UserService } from '../shared/user.service';
-import { kebabCase } from 'lodash';
 
 @Component({
   standalone: true,
@@ -19,7 +18,10 @@ import { kebabCase } from 'lodash';
 })
 export class CreateNewPostComponent implements OnInit {
 
-  public kebabCase = kebabCase;
+  kebabCase = (s: string) => {
+    let x = s.match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g);
+    return x ? x.join('-').toLowerCase() : '';
+  }
 
   newPostForm!: FormGroup;
 
@@ -44,7 +46,7 @@ export class CreateNewPostComponent implements OnInit {
   async createPost() {
 
     const title = this.newPostForm.get('title')?.value;
-    const slug = encodeURI(kebabCase(title));
+    const slug = encodeURI(this.kebabCase(title));
     const uid = this.us.user?.uid;
     const username = this.us.username;
     if (slug && uid) {
