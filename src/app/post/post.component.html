@@ -1,0 +1,21 @@
+<main class="container">
+    <section>
+        <div class="card">
+            <h1>{{ post.title }}</h1>
+            <span class="text-sm">
+                Written by
+                <a [routerLink]="post.username" class="text-info">{{ post.username }}</a>
+                on {{ createdAt?.toISOString() }}
+            </span>
+            <markdown>{{ post.content }}</markdown>
+        </div>
+    </section>
+    <aside class="card">
+        <p>
+            <strong>{{ post.heartCount || 0 }} 🤍</strong>
+        </p>
+        <app-auth-check>
+            
+        </app-auth-check>
+    </aside>
+</main>

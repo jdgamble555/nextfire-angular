@@ -1,0 +1,7 @@
+<ng-container *ngIf="!us.username">
+    <a routerLink="/enter">You must be signed in</a>
+    <button routerLink="/enter">💗 Sign Up</button>
+</ng-container>
+<ng-container *ngIf="us.username">
+    <ng-content></ng-content>
+</ng-container>

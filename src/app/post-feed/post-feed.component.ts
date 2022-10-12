@@ -1,3 +1,4 @@
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +9,15 @@ import { Component, Input, OnInit } from '@angular/core';
 export class PostFeedComponent implements OnInit {
 
   @Input() posts!: any;
-  @Input() admin = false;
+  private _admin: boolean = false;
+
+  @Input()
+  get admin(): boolean {
+    return this._admin;
+  }
+  set admin(value: BooleanInput) {
+    this._admin = coerceBooleanProperty(value);
+  }
 
   ngOnInit(): void {
     this.posts = this.posts ? this.posts.map((post: any) => {

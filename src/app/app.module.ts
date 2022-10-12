@@ -12,13 +12,17 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { provideStorage, getStorage } from '@angular/fire/storage';
 import { MarkdownModule } from 'ngx-markdown';
 import { HomeComponent } from './home/home.component';
+import { PostComponent } from './post/post.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    PostComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

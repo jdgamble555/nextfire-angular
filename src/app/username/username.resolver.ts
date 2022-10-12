@@ -11,7 +11,8 @@ import {
 import {
   Resolve,
   RouterStateSnapshot,
-  ActivatedRouteSnapshot
+  ActivatedRouteSnapshot,
+  Router
 } from '@angular/router';
 import { FirebaseService } from '../shared/firebase.service';
 import { StateService } from '../shared/state/state.service';
@@ -24,7 +25,8 @@ export class UsernameResolver implements Resolve<any> {
   constructor(
     private ss: StateService,
     private fbs: FirebaseService,
-    private afs: Firestore
+    private afs: Firestore,
+    private router: Router
   ) { }
 
   resolve(
@@ -45,9 +47,8 @@ export class UsernameResolver implements Resolve<any> {
 
     // If no user, short circuit to 404 page
     if (!userDoc) {
-      return {
-        notFound: true,
-      };
+      this.router.navigate(['/404'], { skipLocationChange: true });
+      return;
     }
 
     // JSON serializable data

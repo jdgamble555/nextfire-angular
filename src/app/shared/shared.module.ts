@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LoaderComponent } from './loader/loader.component';
 import { PostFeedComponent } from '../post-feed/post-feed.component';
 import { RouterModule } from '@angular/router';
+import { AuthCheckComponent } from '../auth-check/auth-check.component';
 
 const modules = [
   CommonModule,
@@ -11,7 +12,8 @@ const modules = [
 
 const components = [
   LoaderComponent,
-  PostFeedComponent
+  PostFeedComponent,
+  AuthCheckComponent
 ];
 
 @NgModule({
