@@ -1,5 +1,3 @@
-<main>
-    <app-auth-check>
-        <app-post-manager></app-post-manager>
-    </app-auth-check>
-</main>
+<app-auth-check>
+    <app-post-manager *ngIf="us.user"></app-post-manager>
+</app-auth-check>

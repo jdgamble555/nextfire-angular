@@ -35,7 +35,6 @@ export class PostManagerComponent implements OnInit {
     this.post = this.us.user
       ? await getDoc(
         doc(this.afs, 'users', this.us.user.uid, 'posts', slug)
-      ).then(doc => doc.exists() ? doc.data() : null) : null;
-    console.log(this.post);
+      ).then(doc => doc.exists() ? { ...doc.data(), id: doc.id } : null) : null;
   }
 }

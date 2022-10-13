@@ -45,8 +45,6 @@ export class HomeResolver implements Resolve<any> {
 
     const posts = (await getDocs(postsQuery)).docs.map(this.fbs.postToJSON);
 
-    return {
-      props: { posts }, // will be passed to the page component as props
-    };
+    return { posts }; // will be passed to the page component as props
   }
 }

@@ -1,26 +1,34 @@
-<form (submit)="updatePost()">
-    <ng-container *ngIf="preview">
-        <div class="card">
-            <markdown>{{ postForm.value.content }}</markdown>
-        </div>
-    </ng-container>
-
+<form [formGroup]="postForm" (submit)="updatePost()">
+    <div class="card" *ngIf="preview">
+        <markdown>{{ postForm.value.content }}</markdown>
+    </div>
     <div class="{{ preview ? 'hidden' : 'controls' }}">
         <!--<ImageUploader />-->
 
-        <textarea name="content"></textarea>
+        <textarea formControlName="content" name="content"></textarea>
 
-        <!--<ng-container *ngIf="errors.content">
-            <p class="text-danger">{{ errors.content.message }}</p>
-        </ng-container>-->
+        <!-- TODO: much cleaner ways to do this -->
+        <ng-container *ngIf="content!.errors">
+            <p class="text-danger">
+                <ng-container *ngIf="content!.hasError('required')">
+                    content is required
+                </ng-container>
+                <ng-container *ngIf="content!.hasError('minlength')">
+                    content is too short
+                </ng-container>
+                <ng-container *ngIf="content!.hasError('maxlength')">
+                    content is too long
+                </ng-container>
+            </p>
+        </ng-container>
 
         <fieldset>
-            <input class="checkbox" name="published" type="checkbox" ref={register} />
+            <input formControlName="published" class="checkbox" name="published" type="checkbox" ref={register} />
             <label>Published</label>
         </fieldset>
 
-        <!--<button type="submit" className="btn-green" disabled={{!isDirty || !isValid}}>
+        <button type="submit" class="btn-green" [disabled]="postForm.invalid || !postForm.dirty">
             Save Changes
-        </button>-->
+        </button>
     </div>
 </form>

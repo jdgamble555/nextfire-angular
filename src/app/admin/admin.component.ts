@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { collection, collectionData, Firestore, orderBy, query } from '@angular/fire/firestore';
 import { of } from 'rxjs';
 import { CreateNewPostComponent } from '../create-new-post/create-new-post.component';

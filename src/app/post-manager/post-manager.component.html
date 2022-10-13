@@ -3,16 +3,15 @@
         <section>
             <h1>{{ post.title }}</h1>
             <p>ID: {{ post.slug }}</p>
-
             <app-post-form [preview]="preview" [post]="post"></app-post-form>
-            <!--<PostForm postRef={postRef} defaultValues={post} preview={preview} />-->
         </section>
-
         <aside>
             <h3>Tools</h3>
             <button (click)="togglePreview()">{{ preview ? 'Edit' : 'Preview' }}</button>
             <button [routerLink]="['/', post.username, post.slug]" class="btn-blue">Live view</button>
-            <!--<DeletePostButton postRef={postRef} />-->
+            <button class="btn-red" onClick={deletePost}>
+                Delete
+            </button>
         </aside>
     </ng-container>
 </main>
