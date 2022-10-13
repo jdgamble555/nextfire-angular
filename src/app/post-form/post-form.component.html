@@ -3,8 +3,7 @@
         <markdown>{{ postForm.value.content }}</markdown>
     </div>
     <div class="{{ preview ? 'hidden' : 'controls' }}">
-        <!--<ImageUploader />-->
-
+        <app-image-uploader></app-image-uploader>
         <textarea formControlName="content" name="content"></textarea>
 
         <!-- TODO: much cleaner ways to do this -->

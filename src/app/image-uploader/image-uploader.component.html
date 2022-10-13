@@ -1,0 +1,11 @@
+<div class="box">
+    <app-loader [show]="uploading"></app-loader>
+    <h3 *ngIf="uploading">{{ progress }}</h3>
+    <ng-container *ngIf="!uploading">
+        <label class="btn">
+            📸 Upload Img
+            <input type="file" (change)="uploadFile($event)" accept="image/x-png,image/gif,image/jpeg" />
+        </label>
+    </ng-container>
+    <code *ngIf="downloadURL" class="upload-snippet">{{ '![alt](' + downloadURL + ')' }}</code>
+</div>

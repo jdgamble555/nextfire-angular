@@ -3,6 +3,7 @@ import { doc, Firestore, serverTimestamp, updateDoc } from '@angular/fire/firest
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HotToastService } from '@ngneat/hot-toast';
 import { MarkdownModule } from 'ngx-markdown';
+import { ImageUploaderComponent } from '../image-uploader/image-uploader.component';
 import { SharedModule } from '../shared/shared.module';
 import { UserService } from '../shared/user.service';
 
@@ -14,7 +15,8 @@ import { UserService } from '../shared/user.service';
   imports: [
     SharedModule,
     ReactiveFormsModule,
-    MarkdownModule
+    MarkdownModule,
+    ImageUploaderComponent
   ]
 })
 export class PostFormComponent implements OnInit {
@@ -38,7 +40,7 @@ export class PostFormComponent implements OnInit {
         Validators.maxLength(20000),
         Validators.minLength(10)
       ]],
-      published: [false, [
+      published: [this.post.published, [
         Validators.required
       ]]
     });
