@@ -15,7 +15,7 @@
         If admin view, show extra controls for user
         <ng-container *ngIf="admin">
             <h3>
-                <button [routerLink]="['admin', post.slug]" class="btn-blue">Edit</button>
+                <button [routerLink]="['/', 'admin', post.slug]" class="btn-blue">Edit</button>
             </h3>
         </ng-container>
         <ng-container *ngIf="post.published">

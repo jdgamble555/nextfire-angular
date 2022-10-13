@@ -1,7 +1,7 @@
 <main>
     <app-auth-check>
         <h1>Manage your Posts</h1>
-        <app-post-feed *ngIf="posts | async" posts="posts" admin></app-post-feed>
+        <app-post-feed *ngIf="posts | async as p" [posts]="p" admin></app-post-feed>
         <app-create-new-post></app-create-new-post>
     </app-auth-check>
 </main>

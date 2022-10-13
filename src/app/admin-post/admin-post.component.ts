@@ -1,9 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { collection, collectionData, Firestore, orderBy, query } from '@angular/fire/firestore';
-import { of } from 'rxjs';
+import { Component } from '@angular/core';
 import { CreateNewPostComponent } from '../create-new-post/create-new-post.component';
+import { PostManagerComponent } from '../post-manager/post-manager.component';
 import { SharedModule } from '../shared/shared.module';
-import { UserService } from '../shared/user.service';
 
 @Component({
   standalone: true,
@@ -12,19 +10,8 @@ import { UserService } from '../shared/user.service';
   styleUrls: ['./admin-post.component.scss'],
   imports: [
     SharedModule,
+    PostManagerComponent,
     CreateNewPostComponent
   ]
 })
-export class AdminPostComponent implements OnInit {
-
-  constructor(
-    private afs: Firestore,
-    private us: UserService
-  ) {
-
-  }
-
-  ngOnInit(): void {
-  }
-
-}
+export class AdminPostComponent { }

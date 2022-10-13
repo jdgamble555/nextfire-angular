@@ -20,7 +20,7 @@ export class PostFeedComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.posts = this.posts ? this.posts.map((post: any) => {
+    this.posts = this.posts && this.posts.length ? this.posts.map((post: any) => {
 
       // Naive method to calc word count and read time
       const wordCount = post?.content.trim().split(/\s+/g).length;

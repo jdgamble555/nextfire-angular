@@ -3,7 +3,7 @@
     <p>
         <strong>Slug:</strong> {{ kebabCase(newPostForm.value.title) }}
     </p>
-    <button type="submit" disabled={!isValid} class="btn-green">
+    <button type="submit" [disabled]="newPostForm.invalid" class="btn-green">
         Create New Post
     </button>
 </form>
