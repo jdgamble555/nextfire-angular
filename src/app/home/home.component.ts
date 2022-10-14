@@ -12,6 +12,7 @@ import {
 } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { LoaderService } from '../shared/loader.service';
+import { SeoService } from '../shared/seo.service';
 
 const LIMIT = 10;
 
@@ -29,8 +30,14 @@ export class HomeComponent implements OnInit {
   constructor(
     public ls: LoaderService,
     private route: ActivatedRoute,
-    private afs: Firestore
-  ) { }
+    private afs: Firestore,
+    private seo: SeoService
+  ) {
+    this.seo.generateTags({
+      title: "Home Page",
+      description: "Get the latest posts on our site"
+    });
+  }
 
   ngOnInit(): void {
     const { posts } = this.route.snapshot.data['props'];

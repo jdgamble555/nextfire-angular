@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +8,5 @@ import { HotToastService } from '@ngneat/hot-toast';
 export class AppComponent {
   title = 'nextfire-angular';
 
-  constructor(public toast: HotToastService) { }
+  constructor() { }
 }

@@ -2,6 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { doc, docData, DocumentReference, Firestore } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { SeoService } from '../shared/seo.service';
 import { UserService } from '../shared/user.service';
 
 @Component({
@@ -19,8 +20,15 @@ export class PostComponent implements OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private afs: Firestore,
-    public us: UserService
+    public us: UserService,
+    private seo: SeoService
   ) {
+
+    this.seo.generateTags({
+      title: "Enter",
+      description: "Sign up for this amazing app!"
+    });
+
     const props = this.route.snapshot.data['props'];
     this.postRef = doc(this.afs, props.path);
     this.post = props.post;
