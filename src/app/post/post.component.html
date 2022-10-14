@@ -1,13 +1,13 @@
-<main class="container">
+<main *ngIf="post" class="container">
     <section>
         <div class="card">
             <h1>{{ post.title }}</h1>
             <span class="text-sm">
                 Written by
                 <a [routerLink]="post.username" class="text-info">{{ post.username }}</a>
-                on {{ createdAt?.toISOString() }}
+                on {{ post.createdAt?.toISOString() }}
             </span>
-            <markdown>{{ post.content }}</markdown>
+            <markdown [data]="post.content" ngPreserveWhitespaces></markdown>
         </div>
     </section>
     <aside class="card">

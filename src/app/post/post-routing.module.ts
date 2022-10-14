@@ -4,7 +4,7 @@ import { PostComponent } from './post.component';
 import { PostResolver } from './post.resolver';
 
 const routes: Routes = [
-  { path: '', component: PostComponent, resolve: { props: PostResolver } }
+  { path: '', component: PostComponent, resolve: { props: PostResolver }, data: { revalidate: 100 } }
 ];
 
 @NgModule({

@@ -5,7 +5,7 @@ import { HomeResolver } from './home/home.resolver';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, resolve: { props: HomeResolver } },
+  { path: '', component: HomeComponent, resolve: { props: HomeResolver }, },
   { path: 'enter', loadComponent: () => import('./enter/enter.component').then(c => c.EnterComponent) },
   { path: 'admin/:slug', loadComponent: () => import('./admin/admin-post/admin-post.component').then(c => c.AdminPostComponent) },
   { path: 'admin', loadComponent: () => import('./admin/admin.component').then(c => c.AdminComponent) },
@@ -17,7 +17,7 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
     initialNavigation: 'enabledBlocking'
-})],
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -52,9 +52,11 @@ export class PostResolver implements Resolve<any> {
     }
 
     return { post, path };
-    //revalidate: 5000
   }
 }
+
+// For this moment, getStaticPaths can not be translated, but you could turn off
+// revalidate manually for certain paths
 
 /*
 export async function getStaticPaths() {

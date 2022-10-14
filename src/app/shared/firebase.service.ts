@@ -13,8 +13,6 @@ export class FirebaseService {
    * @param  {string} username
    */
   async getUserWithUsername(username: string) {
-    // const usersRef = collection(firestore, 'users');
-    // const query = usersRef.where('username', '==', username).limit(1);
 
     const q = query(
       collection(this.afs, 'users'),
