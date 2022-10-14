@@ -23,7 +23,7 @@ import { PostComponent } from './post/post.component';
     PostComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     SharedModule,
     HotToastModule.forRoot(),

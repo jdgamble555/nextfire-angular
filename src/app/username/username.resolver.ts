@@ -57,12 +57,7 @@ export class UsernameResolver implements Resolve<any> {
 
     if (userDoc) {
       user = userDoc.data();
-      // const postsQuery = userDoc.ref
-      //   .collection('posts')
-      //   .where('published', '==', true)
-      //   .orderBy('createdAt', 'desc')
-      //   .limit(5);
-
+      
       const postsQuery = query(
         collection(this.afs, userDoc.ref.path, 'posts'),
         where('published', '==', true),

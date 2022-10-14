@@ -15,7 +15,10 @@
             <strong>{{ post.heartCount || 0 }} 🤍</strong>
         </p>
         <app-auth-check>
-            <app-heart-button [postRef]="postRef" [user]="us.user"></app-heart-button>
+            <app-heart-button *ngIf="us.user" [postRef]="postRef" [user]="us.user"></app-heart-button>
         </app-auth-check>
+        <ng-container *ngIf="us.user?.uid === post?.uid">
+            <button [routerLink]="['/admin', post.slug]" class="btn-blue">Edit Post</button>
+        </ng-container>
     </aside>
 </main>

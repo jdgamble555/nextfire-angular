@@ -4,7 +4,7 @@
             <strong>By {{ post.username }}</strong>
         </a>
         <h2>
-            <a [routerLink]="[post.username, post.slug]">{{ post.title }}</a>
+            <a [routerLink]="['/', post.username, post.slug]">{{ post.title }}</a>
         </h2>
         <footer>
             <span>
