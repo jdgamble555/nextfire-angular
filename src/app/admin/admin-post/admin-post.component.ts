@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { CreateNewPostComponent } from '../create-new-post/create-new-post.component';
 import { PostManagerComponent } from '../post-manager/post-manager.component';
-import { SharedModule } from '../shared/shared.module';
-import { UserService } from '../shared/user.service';
+import { SharedModule } from '../../shared/shared.module';
+import { UserService } from '../../shared/user.service';
 
 @Component({
   standalone: true,

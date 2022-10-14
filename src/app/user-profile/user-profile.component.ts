@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SeoService } from '../shared/seo.service';
 
 @Component({
@@ -6,11 +6,13 @@ import { SeoService } from '../shared/seo.service';
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss']
 })
-export class UserProfileComponent {
+export class UserProfileComponent implements OnInit {
 
   @Input() user: any;
 
-  constructor(private seo: SeoService) {
+  constructor(private seo: SeoService) { }
+
+  ngOnInit(): void {
     this.seo.generateTags({
       title: this.user.username,
       description: this.user.username + "'s public profile"

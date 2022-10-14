@@ -4,8 +4,8 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { HotToastService } from '@ngneat/hot-toast';
 import { MarkdownModule } from 'ngx-markdown';
 import { ImageUploaderComponent } from '../image-uploader/image-uploader.component';
-import { SharedModule } from '../shared/shared.module';
-import { UserService } from '../shared/user.service';
+import { SharedModule } from '../../shared/shared.module';
+import { UserService } from '../../shared/user.service';
 
 @Component({
   standalone: true,

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { getDownloadURL, ref, Storage, uploadBytesResumable } from '@angular/fire/storage';
-import { SharedModule } from '../shared/shared.module';
-import { UserService } from '../shared/user.service';
+import { SharedModule } from '../../shared/shared.module';
+import { UserService } from '../../shared/user.service';
 
 @Component({
   standalone: true,

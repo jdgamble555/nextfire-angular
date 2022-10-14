@@ -3,8 +3,8 @@ import { doc, Firestore, serverTimestamp, setDoc } from '@angular/fire/firestore
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
-import { SharedModule } from '../shared/shared.module';
-import { UserService } from '../shared/user.service';
+import { SharedModule } from '../../shared/shared.module';
+import { UserService } from '../../shared/user.service';
 
 @Component({
   standalone: true,

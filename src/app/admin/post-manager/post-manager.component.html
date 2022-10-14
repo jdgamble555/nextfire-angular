@@ -9,7 +9,7 @@
             <h3>Tools</h3>
             <button (click)="togglePreview()">{{ preview ? 'Edit' : 'Preview' }}</button>
             <button [routerLink]="['/', post.username, post.slug]" class="btn-blue">Live view</button>
-            <button class="btn-red" onClick={deletePost}>
+            <button class="btn-red" (click)="deletePost()">
                 Delete
             </button>
         </aside>
