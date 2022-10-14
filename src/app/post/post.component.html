@@ -15,7 +15,7 @@
             <strong>{{ post.heartCount || 0 }} 🤍</strong>
         </p>
         <app-auth-check>
-            
+            <app-heart-button [postRef]="postRef" [user]="us.user"></app-heart-button>
         </app-auth-check>
     </aside>
 </main>

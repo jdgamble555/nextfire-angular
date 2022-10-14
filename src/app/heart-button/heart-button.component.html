@@ -1,0 +1,6 @@
+<ng-container *ngIf="heartDoc | async; else noDoc">
+    <button (click)="removeHeart()">💔 Unheart</button>
+</ng-container>
+<ng-template #noDoc>
+    <button (click)="addHeart()">💗 Heart</button>
+</ng-template>

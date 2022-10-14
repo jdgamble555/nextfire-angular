@@ -1,7 +1,8 @@
 import { Component, OnDestroy } from '@angular/core';
-import { doc, docData, Firestore } from '@angular/fire/firestore';
+import { doc, docData, DocumentReference, Firestore } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { UserService } from '../shared/user.service';
 
 @Component({
   selector: 'app-post',
@@ -13,15 +14,17 @@ export class PostComponent implements OnDestroy {
   post: any;
   createdAt: Date | undefined;
   postSub: Subscription;
+  postRef: DocumentReference;
 
   constructor(
     private route: ActivatedRoute,
-    private afs: Firestore
+    private afs: Firestore,
+    public us: UserService
   ) {
     const props = this.route.snapshot.data['props'];
-    const postRef = doc(this.afs, props.path);
-    let realtimePost;
-    this.postSub = docData(postRef).subscribe((post) => post ? (realtimePost = post) : null);
+    this.postRef = doc(this.afs, props.path);
+    this.post = props.post;
+    this.postSub = docData(this.postRef).subscribe((post) => post ? (this.post = post) : null);
 
     this.post = props.post;
     this.createdAt = typeof this.post.createdAt === 'number' ? new Date(this.post.createdAt) : this.post.createdAt?.toDate();
