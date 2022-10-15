@@ -40,8 +40,8 @@ export class PostComponent implements OnDestroy {
     this.postRef = doc(this.afs, props.path);
     if (this.state.isBrowser) {
       this.post = this.postConvert(props.post);
+      this.postSub = docData(this.postRef).subscribe((post) => post ? (this.post = this.postConvert(post)) : null);
     }
-    this.postSub = docData(this.postRef).subscribe((post) => post ? (this.post = this.postConvert(post)) : null);
   }
 
   postConvert(p: any) {
@@ -53,6 +53,6 @@ export class PostComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.postSub.unsubscribe();
+    if (this.state.isBrowser) this.postSub.unsubscribe();
   }
 }
