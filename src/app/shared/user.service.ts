@@ -39,6 +39,7 @@ export class UserService implements OnDestroy {
           return docData(doc(this.afs, 'users', _user.uid))
             .pipe(
               tap(_doc => {
+                console.log(_doc);
                 this._username = _doc ? _doc['username'] : null;
               })
             );
